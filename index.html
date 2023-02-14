@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+    <br />
+    <script>
+      var counter = 0;
+
+      function onClick() {
+        counter += 1;
+        document.getElementById("counter").innerHTML = counter;
+      }
+    </script>
+
+    <button type="button" onclick="onClick()">Click me</button>
+    <br /><br />
+    <p>Aantal clicks: <a id="counter">0</a></p>
+    <br />
+    <h2>animation</h2>
+    <br />
+
+    
+
+    <script>
+      function myFunction() {
+        document.getElementById("myAnimation").style.animationDirection =
+          "reverse";
+      }
+    </script>
+    <br />
+    <div id="myAnimation"></div>
+    <br />
+    <h2>Blur event</h2>
+    <br />
+    <br />
+    vul in: <input type="text" id="fname" onblur="myFunction()" />
+
+    <p>wanneer je de text veld in vuld maakt hij er hoofdletters van!</p>
+    <script>
+      function myFunction() {
+        let x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+      }
+    </script>
+    <br />
+    <br />
+    <div id="div01" style="border: 1px solid orange; padding: 5px">
+      <p>right-click voor de verborgen zooi!</p>
+    </div>
+
+    <div id="myDiv" style="visibility: hidden">
+      <p>Dit is verborgen tekst</p>
+      <p>Dit is verborgen tekst</p>
+      <p>Dit is verborgen tekst</p>
+    </div>
+
+    <script>
+      // Assign an "oncontextmenu" event to div01:
+      document.getElementById("div01").oncontextmenu = function () {
+        mijnFunction();
+      };
+
+      // Prevent default context menu:
+      const div = document.getElementById("div01");
+      div.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+      });
+
+      // Show hidden content:
+      function mijnFunction() {
+        const div = document.getElementById("myDiv");
+        div.style.visibility = "visible";
+      }
+    </script>
+    <!-- ondrag event -->
+    <style>
+      .droptarget {
+        width: 100px;
+        height: 35px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+    </style>
+
+    <body>
+      <h2>ondrag Event</h2>
+      <br />
+
+      <div
+        class="droptarget"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        <p
+          ondragstart="dragStart(event)"
+          ondrag="dragging(event)"
+          draggable="true"
+          id="dragtarget"
+        >
+          Drag me!
+        </p>
+      </div>
+
+      <p id="demo"></p>
+
+      <div
+        class="droptarget"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+
+      <script>
+        function dragStart(event) {
+          event.dataTransfer.setData("Text", event.target.id);
+        }
+
+        function dragging(event) {
+          document.getElementById("demo").innerHTML =
+            "de paragraaf word versleept";
+        }
+
+        function allowDrop(event) {
+          event.preventDefault();
+        }
+
+        function drop(event) {
+          event.preventDefault();
+          const data = event.dataTransfer.getData("Text");
+          event.target.appendChild(document.getElementById(data));
+          document.getElementById("demo").innerHTML =
+            "de paragraaf is gedropped";
+        }
+      </script>
+    </body>
+  </body>
+</html>
