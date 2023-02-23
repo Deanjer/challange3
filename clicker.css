@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#cookie-clicker{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 50%;
+    background-color: #EBD494;
+    color: white;
+    font-size: 30px;
+}
+.container{
+   width: 40%;
+   text-align: center;
+   border: 1px inset black ;
+   margin-top: 120px;
+   
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#buy-click-power{
+    width: 100px;
+    height: 40px;
+    background-color: #9AD2CB;
+    border: none;
+    color: white;
+}
+#buy-click-power:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+#cookie-counter{
+    color: #9AD2CB;
+}
